@@ -1,13 +1,20 @@
+
 from flask import Flask
 import socket
 
 app = Flask (__name__)
+
 
 @app.route ('/goodbye')
 def goodbye():
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
     return f'Goodbye @{ip_address}!!'
+
+@app.route('/hello')
+def hello():
+    return 'Hello Mark!'
+
 
 @app.route ('/')
 def home():
